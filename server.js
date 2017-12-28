@@ -2,6 +2,8 @@ const express = require('express');
 const hbs = require('hbs');
 const fs = require('fs');
 
+//use port 3000 locally
+const port = process.env.PORT || 3000;
 var app = express();
 
 //set up partials directory
@@ -25,12 +27,12 @@ app.use((req, res, next) => {
 });
 
 //maintenance middleware - uncomment to disable
-app.use((req, res, next) => {
-    res.render('maintenance.hbs', {
-        pageTitle : 'Site Under Maintenance',
-        welcomeMsg : 'We\'ll be right back!'
-    });
-});
+// app.use((req, res, next) => {
+//     res.render('maintenance.hbs', {
+//         pageTitle : 'Site Under Maintenance',
+//         welcomeMsg : 'We\'ll be right back!'
+//     });
+// });
 
 app.use(express.static(__dirname + '/public'));
 
@@ -66,6 +68,6 @@ app.get('/bad', (req, res) => {
 })
 
 //port
-app.listen(3000, () => {
-    console.log('Server is up on port 3000');
+app.listen(port, () => {
+    console.log(`Server is up on port ${port}`);
 });
