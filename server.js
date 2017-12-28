@@ -52,7 +52,7 @@ app.get('/', (req, res) => {
     res.render('homepage.hbs', {
         pageTitle : 'Home Page',
         welcomeMsg : 'Welcome to the fucking home page.'
-    })
+    });
 });
 
 app.get('/about', (req, res) => {
@@ -64,8 +64,15 @@ app.get('/about', (req, res) => {
 app.get('/bad', (req, res) => {
     res.send({
         errorMessage : 'Requested URL does not exist.'
-    })
-})
+    });
+});
+
+app.get('/projects', (req, res) => {
+    res.render('projects.hbs', {
+        pageTitle : 'Projects Page',
+        welcomeMsg : 'Welcome to the projects page.'
+    });
+});
 
 //port
 app.listen(port, () => {
