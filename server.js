@@ -23,6 +23,7 @@ app.use((req, res, next) => {
     });
     next();
 });
+
 //maintenance middleware - uncomment to disable
 app.use((req, res, next) => {
     res.render('maintenance.hbs', {
@@ -32,6 +33,7 @@ app.use((req, res, next) => {
 });
 
 app.use(express.static(__dirname + '/public'));
+
 //set up helper to be used on the templates
 hbs.registerHelper('getCurrentYear', () => {
     return new Date().getFullYear();
